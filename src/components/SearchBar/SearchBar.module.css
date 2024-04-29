@@ -1,0 +1,40 @@
+
+  .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .inputWrapper {
+    position: relative;
+  }
+  
+  .input {
+    padding: 8px 8px;
+    padding-right: 36px;
+    min-width: 200px;
+    max-width: 350px;
+    border: 1px solid;
+    border-radius: 4px;
+    outline: transparent;
+  }
+  
+  .btn {
+    position: absolute;
+    padding: 6px 12px;
+    font-size: 22px;
+    right: 0;
+    border-radius: 4px;
+    border: transparent;
+    outline: transparent;
+    background-color: transparent;
+    color: #2e6deb81;
+  
+    transition: all 150ms linear;
+  
+    &:hover,
+    &:focus-visible {
+      transform: scale(1.05);
+      color: #2e6debde;
+    }
+  }

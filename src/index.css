@@ -1,6 +1,37 @@
 :root {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* color: #f7f6f1; */
+  /* background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+}
+
+main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px 5%;
+  border: 1px solid black;
+  height: 100%;
+}
+
+/* footer {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  min-width: 100%;
+} */
 
 h1,
 h2,
@@ -16,15 +47,16 @@ p:last-child {
   margin-bottom: 0;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 a {
   color: currentColor;
   text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 button {
@@ -34,10 +66,4 @@ button {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
-}
-
-.section {
-  padding-top: 16px;
-  padding-bottom: 16px;
 }
