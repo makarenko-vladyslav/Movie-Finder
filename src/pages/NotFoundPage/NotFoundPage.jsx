@@ -6,7 +6,7 @@ export default function NotFoundPages() {
     <div>
       <p>Opps! Page not found!</p>
       <p>
-        Повернутись на{" "}
+        Повернутись на 
         <Link to="/" className={css.linkToMain}>
           головну сторінку
         </Link>
