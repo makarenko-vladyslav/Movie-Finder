@@ -17,6 +17,11 @@ export async function getTrendingMovies() {
   return response.data.results;
 }
 
+export async function getPopularMovies() {
+  const response = await axios.get("/movie/popular", options);
+  return response.data.results;
+}
+
 export async function getMoviesById(id) {
   const response = await axios.get(`movie/${id}`, options);
   return response.data;

@@ -27,7 +27,6 @@ export default function MovieCast() {
       <h3>Actors</h3>
       <ul>
         {actors.map((actor) => {
-          console.log(actor);
           return (
             <li key={actor.id}>
               <img
@@ -40,11 +39,13 @@ export default function MovieCast() {
                 height="250px"
                 width="175px"
               />
-              
+
               <h4>{actor.name}</h4>
               <p>{actor.character}</p>
 
-              <p>Popularity: <span>{actor.popularity}</span></p>
+              <p>
+                Popularity: <span>{actor.popularity}</span>
+              </p>
             </li>
           );
         })}

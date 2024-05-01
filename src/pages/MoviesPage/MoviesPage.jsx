@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { searchMovies } from "../../movies-api";
+import { useSearchParams } from "react-router-dom";
+import { searchMovies, getPopularMovies } from "../../movies-api";
 
 import SearchBar from "../../components/SearchBar/SearchBar";
 import MovieList from "../../components/MovieList/MovieList";
-import { useSearchParams } from "react-router-dom";
 
 export default function MoviesPage() {
-
   const [movies, setMovies] = useState([]);
 
   const [loading, setLoading] = useState(false);
@@ -19,12 +18,22 @@ export default function MoviesPage() {
     setSearchParams({ title: value });
   };
 
+  useEffect(() => {
+    fetchTrendsMovies();
+  }, []);
 
   useEffect(() => {
-    if ( searchValue) {
+    if (searchValue) {
       fetchMovies(searchValue);
     }
   }, [searchValue]);
+
+  async function fetchTrendsMovies() {
+    if (movies.length == 0) {
+      const data = await getPopularMovies();
+      setMovies(data);
+    }
+  }
 
   async function fetchMovies(title) {
     setMovies([]);
@@ -44,7 +53,7 @@ export default function MoviesPage() {
       <p>Movies page</p>
       <SearchBar onSubmit={handleSearch}></SearchBar>
 
-      <MovieList movies={movies && movies} ></MovieList>
+      <MovieList movies={movies && movies}></MovieList>
     </div>
   );
 }

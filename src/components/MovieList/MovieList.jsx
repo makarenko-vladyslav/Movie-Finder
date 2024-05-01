@@ -7,10 +7,11 @@ const posterPath = "https://image.tmdb.org/t/p/w500";
 
 export default function MovieList({ movies }) {
   const location = useLocation();
-//   console.log(location);
 
   return (
     <>
+      <h1>Top 20 on this week</h1>
+
       <ul className={css.moviesList}>
         {movies.map((item) => (
           <li className={css.movieItem} key={item.id}>
@@ -22,9 +23,11 @@ export default function MovieList({ movies }) {
                     item.poster_path ? posterPath + item.poster_path : posterImg
                   }
                   alt={item.title}
-                  width="230px"
+                  width="225px"
                   height="300px"
                 />
+                <p>Rating: {item.vote_average}</p>
+
               </div>
             </Link>
           </li>

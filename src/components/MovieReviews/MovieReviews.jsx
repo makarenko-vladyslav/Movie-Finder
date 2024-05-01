@@ -9,7 +9,6 @@ export default function MovieReviews() {
   useEffect(() => {
     async function getReviews() {
       const data = await getMovieReviews(movieId);
-      console.log(data);
 
       data.total_results > 0 && setReviews(data.results);
     }
