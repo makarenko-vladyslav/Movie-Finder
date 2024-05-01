@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 export default function MovieReviews() {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
-  const [pages, setPages] = useState(1);
 
   useEffect(() => {
     async function getReviews() {
