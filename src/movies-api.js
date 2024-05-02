@@ -27,9 +27,9 @@ export async function getMoviesById(id) {
   return response.data;
 }
 
-export async function searchMovies(search) {
+export async function searchMovies(search, page) {
   const response = await axios.get(
-    `search/movie?page=1&query=${search}`,
+    `search/movie?page=${page}&query=${search}`,
     options
   );
   return response.data.results;

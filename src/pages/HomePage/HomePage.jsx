@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTrendingMovies } from "../../movies-api";
 import MovieList from "../../components/MovieList/MovieList";
+import Spinner from "../../components/Spinner/Spinner";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -13,16 +14,26 @@ export default function HomePage() {
   }, []);
 
   async function fetchTrendsMovies() {
+    setLoading(true)
+
     if (movies.length == 0) {
-      const data = await getTrendingMovies();
-      setMovies(data);
+      try {
+        const data = await getTrendingMovies();
+        setMovies(data);
+      } catch (error) {
+        setLoading(false);
+      } finally {
+        setLoading(false);
+
+      }
     }
   }
 
   return (
     <div>
-      <h3>Home page </h3>
-      <MovieList movies={movies && movies}></MovieList>;
+      <h2>Weekly trends</h2>
+      {movies && <MovieList movies={movies && movies}></MovieList>}
+      {loading && <Spinner></Spinner>}
     </div>
   );
 }

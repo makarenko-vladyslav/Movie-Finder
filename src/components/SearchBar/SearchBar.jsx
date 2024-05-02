@@ -11,7 +11,7 @@ export default function SearchBar({ onSubmit }) {
     const topic = form.elements.topic.value;
 
     !topic.trim()
-      ? toast.error("Your should to enter text for image search!")
+      ? toast.error("Your should to enter film title for search!")
       : onSubmit(topic);
 
     form.reset();

@@ -1,7 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 
 import { getMoviesById } from "../../movies-api";
+import bannerImg from "../../assets/banner-min.jpg";
+import noPosterImg from "../../assets/no-poster.jpg";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -21,6 +29,7 @@ export default function MovieDetailsPage() {
   async function fetchMovieDetails() {
     try {
       const data = await getMoviesById(movieId);
+
       setMovie(data);
     } catch (error) {
       setError(true);
@@ -35,10 +44,35 @@ export default function MovieDetailsPage() {
 
       {error && <p>There was an error loading the movie details.</p>}
       {movie && (
-        <div>
-          <h2>{movie.title}</h2>
-          <p>{movie.overview}</p>
-        </div>
+        // <section className={css.section}
+
+        <section
+          style={{
+            background: movie.backdrop_path
+              ? `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})`
+              : `url(${bannerImg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <img
+            src={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                : `${noPosterImg}`
+            }
+            alt={`${movie.name} photo`}
+            height="250px"
+            width="175px"
+          />
+          <div>
+            <h2>{movie.title}</h2>
+            <p>{movie.tagline}</p>
+
+            <p>{movie.overview}</p>
+            <p>Release: {movie.release_date}</p>
+          </div>
+        </section>
       )}
 
       <div>
@@ -51,7 +85,7 @@ export default function MovieDetailsPage() {
           </li>
         </ul>
 
-        < Outlet/>
+        <Outlet />
       </div>
     </div>
   );

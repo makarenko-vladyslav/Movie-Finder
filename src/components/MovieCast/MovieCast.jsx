@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getMovieCast } from "../../movies-api";
 import { useParams } from "react-router-dom";
 
-import defPhoto from "../../../public/def-photo.svg";
+import defPhoto from "../../assets/def-photo.svg";
 
 export default function MovieCast() {
   const { movieId } = useParams();
@@ -24,7 +24,6 @@ export default function MovieCast() {
 
   return (
     <div>
-      <h3>Actors</h3>
       <ul>
         {actors.map((actor) => {
           return (

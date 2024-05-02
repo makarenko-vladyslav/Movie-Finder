@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import posterImg from "../../../public/no-poster.jpg";
+import posterImg from "../../assets/no-poster.jpg";
 
 import css from "./MovieList.module.css";
 
@@ -10,7 +10,6 @@ export default function MovieList({ movies }) {
 
   return (
     <>
-      <h1>Top 20 on this week</h1>
 
       <ul className={css.moviesList}>
         {movies.map((item) => (

@@ -18,17 +18,21 @@ export default function MovieReviews() {
 
   return (
     <div>
-      <div>Reviews</div>
-      <ul>
-        {reviews.map((review) => {
-          return (
-            <li key={review.id}>
-              <h3>{review.author}</h3>
-              <p>{review.content}</p>
-            </li>
-          );
-        })}
-      </ul>
+
+      {reviews.length > 0 ? (
+        <ul>
+          {reviews.map((review) => {
+            return (
+              <li key={review.id}>
+                <h3>{review.author}</h3>
+                <p>{review.content}</p>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <p>We don`t have any reviews about this film.</p>
+      )}
     </div>
   );
 }
