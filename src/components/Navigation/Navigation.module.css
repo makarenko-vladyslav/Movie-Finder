@@ -53,8 +53,21 @@
 
 .logo .logoSpinner,
 .logo .logoSpinner2 {
-  animation: rotate infinite 300ms;
+  -webkit-animation: rotate infinite 300ms;
+          animation: rotate infinite 300ms;
   
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 360deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
 }
 
 @keyframes rotate {
