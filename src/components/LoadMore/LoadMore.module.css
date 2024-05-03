@@ -6,8 +6,20 @@
 .btn {
   cursor: pointer;
   display: inline-block;
-  padding: 0.6rem 1.5rem;
-  background-color: #333333;
-  color: #fff;
-  border-radius: 0.5rem;
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: transparent;
+  color: #ffffffce;
+  transition: color 150ms linear;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  background-color: rgba(255, 0, 0, 0.829);
+
+  transition: background 250ms linear;
+
+  backdrop-filter: 1px 3px 6px black;
+}
+
+.btn:hover {
+  background-color: red;
 }
