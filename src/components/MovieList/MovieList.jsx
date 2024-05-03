@@ -41,7 +41,8 @@ export default function MovieList({ movies }) {
                     item.vote_average && ratingColor(item.vote_average)
                   }
                 >
-                  {item.vote_average != 0 && item.vote_average}
+                  {item.vote_average != 0 &&
+                    item.vote_average.toFixed(1)}
                 </span>
               </div>
             </Link>
