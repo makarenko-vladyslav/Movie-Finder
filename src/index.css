@@ -3,38 +3,39 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* color: #f7f6f1; */
-  /* background-color: #242424; */
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --white: #fff;
-  --dark: #2a2a2a;
+  --main-white: #fff;
+  --dark-main: #1d1e1f;
+  --dark-header: ##252627;
+  --accent: #d9212f;
+  --accent-second: #f6c701;
+  --mark-green: #06be4d;
+  --mark-orange: #ff6500;
+  --mark-yellow: #F5BE00;
+  --mark-orange: #f6c701;
+  --no-focus: #242526;
+  --text-details: #aeaeae;
 }
 
 body {
+  background-color: #1d1e1f;
+  color: #fff;
   margin: 0;
   padding: 0;
   min-width: 320px;
 }
 
 main {
+  position: relative;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 16px 5%;
-  border: 1px solid black;
+  padding: 16px 24px;
   height: 100%;
 }
-
-/* footer {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  min-width: 100%;
-} */
 
 h1,
 h2,
@@ -44,6 +45,10 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+h2 {
+  margin-left: 8px;
 }
 
 p:last-child {

@@ -21,18 +21,18 @@ export default function SearchBar({ onSubmit }) {
     <>
       <form className={css.form} onSubmit={handleSubmit}>
         <div className={css.inputWrapper}>
+          <button className={css.btn} type="submit">
+            <IoSearch />
+          </button>
+
           <input
             className={css.input}
             type="text"
             autoComplete="off"
             autoFocus
-            placeholder="Search images and photos"
+            placeholder="Search films and serials"
             name="topic"
           />
-
-          <button className={css.btn} type="submit">
-            <IoSearch />
-          </button>
         </div>
       </form>
 

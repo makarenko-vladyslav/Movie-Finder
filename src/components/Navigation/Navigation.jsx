@@ -1,5 +1,7 @@
-import { NavLink } from "react-router-dom";
-import { RiMovie2Line } from "react-icons/ri";
+import { Link, NavLink } from "react-router-dom";
+// import { RiMovie2Line } from "react-icons/ri";
+import { PiSpinnerBallBold } from "react-icons/pi";
+import { BiCameraMovie } from "react-icons/bi";
 
 import clsx from "clsx";
 import css from "./Navigation.module.css";
@@ -12,16 +14,21 @@ export default function Navigation() {
   return (
     <header className={css.header}>
       <nav className={css.nav}>
+        <Link to="/" className={css.logo}>
+          <BiCameraMovie className={css.logoMovie} />
+          <PiSpinnerBallBold className={css.logoSpinner} />
+          <PiSpinnerBallBold className={css.logoSpinner2} />
+        </Link>
+
         <ul className={css.navList}>
           <li className={css.listItem}>
             <NavLink to="/" className={getItemClass}>
-              <RiMovie2Line className={css.logo} />
-              ГОЛОВНА
+              HOME
             </NavLink>
           </li>
           <li className={css.listItem}>
             <NavLink to="/movies" className={getItemClass}>
-              КАТАЛОГ
+              MOVIES
             </NavLink>
           </li>
         </ul>

@@ -3,6 +3,8 @@ import { getTrendingMovies } from "../../movies-api";
 import MovieList from "../../components/MovieList/MovieList";
 import Spinner from "../../components/Spinner/Spinner";
 
+import css from "./HomePage.module.css"
+
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
 
@@ -30,10 +32,10 @@ export default function HomePage() {
   }
 
   return (
-    <div>
-      <h2>Weekly trends</h2>
+    <section className={css.body}>
+      {!loading && <h2 className={css.title}>Weekly trends</h2>}
       {movies && <MovieList movies={movies && movies}></MovieList>}
       {loading && <Spinner></Spinner>}
-    </div>
+    </section>
   );
 }

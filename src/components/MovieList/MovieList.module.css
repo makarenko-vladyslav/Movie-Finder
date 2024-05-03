@@ -1,0 +1,44 @@
+.moviesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.movieItem {
+  position: relative;
+  padding: 5px;
+  max-width: 198px;
+}
+
+.rating {
+  position: absolute;
+  display: inline-block;
+  top: 24px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 30px;
+  color: #1d1e1f;
+  padding: 3px 10px 3px 8px;
+}
+
+.ratingRed {
+  background-color: #d9212f;
+}
+
+.ratingOrange {
+  background-color: #f56a00;
+}
+
+.ratingYellow {
+  background-color: #f6c701;
+}
+
+.ratingGreen {
+  background-color: #06be4d;
+}
+
+.ratingNull {
+    display: none;
+}

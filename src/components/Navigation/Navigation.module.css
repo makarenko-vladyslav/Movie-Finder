@@ -3,8 +3,8 @@
   justify-content: start;
   align-items: center;
   flex-direction: row;
-  background-color: rgba(0, 0, 0, 0.75);
-  height: 100px;
+  background-color: #252627;
+  height: 80px;
 }
 
 .nav {
@@ -16,21 +16,90 @@
   align-items: center;
 }
 
+.logo {
+  position: relative;
+  scale: 1.5;
+  text-align: center;
+  padding-top: 5px;
+  padding-left: 10px;
+  opacity: 0.8;
+}
+
+.logoMovie {
+  font-size: 46px;
+  color: #fff;
+  margin-left: 16px;
+}
+
+.logoSpinner {
+  position: absolute;
+  font-size: 10px;
+  color: #fff;
+  top: 13.5px;
+  left: 32.5px;
+  color: rgba(0, 0, 0, 0.584);
+  background: #fff;
+}
+
+.logoSpinner2 {
+  position: absolute;
+  font-size: 10px;
+  color: #fff;
+  top: 13.5px;
+  left: 46px;
+  color: rgba(0, 0, 0, 0.584);
+  background: #fff;
+}
+
+.logo .logoSpinner,
+.logo .logoSpinner2 {
+  animation: rotate infinite 300ms;
+  
+}
+
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 360deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+
 .navList {
   display: flex;
   align-items: center;
+  margin-left: 2%;
 }
 
-.listItem{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.listItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .item {
-  padding: 12px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  color: #ffffffce;
+  transition: color 150ms linear;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.item:hover {
+  color: #fff;
 }
 
 .active {
   background-color: red;
+  transition: background 250ms linear;
+  color: #fff;
+}
+
+.active:hover {
+  background-color: rgba(255, 0, 0, 0.891);
 }

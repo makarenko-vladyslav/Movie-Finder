@@ -7,6 +7,8 @@ import MovieList from "../../components/MovieList/MovieList";
 import LoadMore from "../../components/LoadMore/LoadMore";
 import Spinner from "../../components/Spinner/Spinner";
 
+import css from "./MoviesPage.module.css";
+
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -80,10 +82,15 @@ export default function MoviesPage() {
   }
 
   return (
-    <div>
+    <section className={css.body}>
       <SearchBar onSubmit={handleSearch}></SearchBar>
 
-      {searchValue ? <h2>Films by request: {searchValue}</h2> : <h2>Most popular</h2>}
+      {!loading &&
+        (searchValue ? (
+          <h2 className={css.title}>Films by request: {searchValue}</h2>
+        ) : (
+          <h2 className={css.title}>Most popular</h2>
+        ))}
 
       {loading && <Spinner></Spinner>}
 
@@ -92,6 +99,6 @@ export default function MoviesPage() {
       {loadMore && <LoadMore onClick={handleLoadMore}></LoadMore>}
 
       {/* {loadMore && <ScrollToTop />} */}
-    </div>
+    </section>
   );
 }

@@ -1,40 +1,62 @@
+.form {
+  position: absolute;
+  top: -65px;
+  right: 10%;
+  /* transform: translateX(50%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  width: 100%;
+  max-width: 50%;
 
-  .form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* height: 100%; */
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  position: relative;
+  padding: 8px 8px;
+  padding-left: 13%;
+  width: 100%;
+  height: 50px;
+  border: 1px solid;
+  border-radius: 4px;
+  outline: transparent;
+  border-radius: 50px;
+  border: transparent;
+
+  background-color: #303030;
+  color: #fff;
+  font-weight: 700;
+}
+
+.input::placeholder {
+  color: #aeaeae;
+  font-weight: 500;
+}
+
+.btn {
+  position: absolute;
+  z-index: 1;
+  padding: 13px 5%;
+  font-size: 24px;
+  left: 0;
+  border-radius: 4px;
+  border: transparent;
+  outline: transparent;
+  background-color: transparent;
+
+  color: #ffffffbb;
+  transition: all 150ms linear;
+
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.2);
+    color: #fff;
   }
-  
-  .inputWrapper {
-    position: relative;
-  }
-  
-  .input {
-    padding: 8px 8px;
-    padding-right: 36px;
-    min-width: 200px;
-    max-width: 350px;
-    border: 1px solid;
-    border-radius: 4px;
-    outline: transparent;
-  }
-  
-  .btn {
-    position: absolute;
-    padding: 6px 12px;
-    font-size: 22px;
-    right: 0;
-    border-radius: 4px;
-    border: transparent;
-    outline: transparent;
-    background-color: transparent;
-    color: #2e6deb81;
-  
-    transition: all 150ms linear;
-  
-    &:hover,
-    &:focus-visible {
-      transform: scale(1.05);
-      color: #2e6debde;
-    }
-  }
+}
