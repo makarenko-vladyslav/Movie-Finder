@@ -1,7 +1,6 @@
 .container {
   text-align: center;
-  padding: 0 7.5px;
-  margin-top: 20px;
+  padding: 16px 0;
 }
 .btn {
   cursor: pointer;
@@ -9,14 +8,13 @@
   padding: 12px 24px;
   border-radius: 50px;
   border: transparent;
-  color: #ffffffce;
   transition: color 150ms linear;
   letter-spacing: -0.02em;
   font-weight: 700;
   background-color: rgba(255, 0, 0, 0.829);
+  color: #ffffffce;
 
   transition: background 250ms linear;
-
   backdrop-filter: 1px 3px 6px black;
 }
 

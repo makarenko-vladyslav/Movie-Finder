@@ -72,7 +72,7 @@
 .navList {
   display: flex;
   align-items: center;
-  margin-left: 2%;
+  margin-left: 3%;
 }
 
 .listItem {
@@ -82,24 +82,29 @@
 }
 
 .item {
-  padding: 12px 24px;
+  padding: 10px 16px;
   border-radius: 50px;
   color: #ffffffce;
   transition: color 150ms linear;
   letter-spacing: -0.02em;
   font-weight: 700;
+
+  transition: color 800ms, scale 250ms;
 }
 
 .item:hover {
-  color: #fff;
+  color: #f44444;
+  scale: 1.05;
 }
 
 .active {
-  background-color: red;
+  background-color: #ff0000e3;
+
   transition: background 250ms linear;
   color: #fff;
 }
 
 .active:hover {
-  background-color: rgba(255, 0, 0, 0.891);
+  color: inherit;
+  scale: inherit;
 }

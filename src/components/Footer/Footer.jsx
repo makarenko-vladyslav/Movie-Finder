@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className={css.footer}>
       <div className={css.footerContainer}>
-        <p className={css.descriptionFooter}>© MOVIES FINDER 2024. All rights reserved.</p>
+        <p className={css.descriptionFooter}>© MOVIES FINDER by Makarich 2024. All rights reserved.</p>
       </div>
     </footer>
   );

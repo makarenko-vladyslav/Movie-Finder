@@ -67,17 +67,17 @@ export default function MoviesPage() {
       setLoading(true);
       setloadMore(false);
       const data = await searchMovies(title, page);
-      setMovies((prevMovies) => [...prevMovies, ...data]);
+      setMovies((prevMovies) => [...prevMovies, ...data.results]);
       if (!data.total_pages) {
         return setError(true);
       }
       page >= data.total_pages ? setloadMore(false) : setloadMore(true);
+      console.log(data.total_pages);
     } catch (error) {
       setError(true);
     } finally {
       setLoading(false);
       setShouldFetch(false);
-      setloadMore(true);
     }
   }
 
@@ -92,9 +92,9 @@ export default function MoviesPage() {
           <h2 className={css.title}>Most popular</h2>
         ))}
 
-      {loading && <Spinner></Spinner>}
-
       <MovieList movies={movies && movies}></MovieList>
+
+      {loading && <Spinner></Spinner>}
 
       {loadMore && <LoadMore onClick={handleLoadMore}></LoadMore>}
 

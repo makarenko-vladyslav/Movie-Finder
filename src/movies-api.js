@@ -32,7 +32,7 @@ export async function searchMovies(search, page) {
     `search/movie?page=${page}&query=${search}`,
     options
   );
-  return response.data.results;
+  return response.data;
 }
 
 export async function getMovieCast(id) {
