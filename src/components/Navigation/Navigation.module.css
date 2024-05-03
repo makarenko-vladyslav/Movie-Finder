@@ -28,6 +28,7 @@
 .logoMovie {
   font-size: 46px;
   color: #fff;
+  /* color: transparent; */
   margin-left: 16px;
 }
 
@@ -39,6 +40,7 @@
   left: 32.5px;
   color: rgba(0, 0, 0, 0.584);
   background: #fff;
+  border-radius: 50%;
 }
 
 .logoSpinner2 {
@@ -49,13 +51,13 @@
   left: 46px;
   color: rgba(0, 0, 0, 0.584);
   background: #fff;
+  border-radius: 50%;
 }
 
 .logo .logoSpinner,
 .logo .logoSpinner2 {
   -webkit-animation: rotate infinite 300ms;
-          animation: rotate infinite 300ms;
-  
+  animation: rotate infinite 300ms;
 }
 
 @-webkit-keyframes rotate {
