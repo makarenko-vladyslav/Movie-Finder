@@ -3,6 +3,7 @@ import { getMovieCast } from "../../movies-api";
 import { useParams } from "react-router-dom";
 
 import defPhoto from "../../assets/def-photo.svg";
+import css from "./MovieCast.module.css";
 
 export default function MovieCast() {
   const { movieId } = useParams();
@@ -23,12 +24,13 @@ export default function MovieCast() {
   }, [movieId]);
 
   return (
-    <div>
-      <ul>
+    <section className={css.actorsSection}>
+      <ul className={css.actorsList}>
         {actors.map((actor) => {
           return (
-            <li key={actor.id}>
+            <li className={css.actorItem} key={actor.id}>
               <img
+                className={css.actorPhoto}
                 src={
                   actor.profile_path
                     ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
@@ -39,16 +41,16 @@ export default function MovieCast() {
                 width="175px"
               />
 
-              <h4>{actor.name}</h4>
-              <p>{actor.character}</p>
+              <h4 className={css.actorName}>{actor.name}</h4>
+              <p className={css.actorCharacter}>{actor.character}</p>
 
-              <p>
+              <p className={css.actorPopularity}>
                 Popularity: <span>{actor.popularity}</span>
               </p>
             </li>
           );
         })}
       </ul>
-    </div>
+    </section>
   );
 }

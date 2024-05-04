@@ -1,0 +1,12 @@
+.actorsSection {
+    margin: 0 auto;
+}
+
+.actorLactorsList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}

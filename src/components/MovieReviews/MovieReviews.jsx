@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { getMovieReviews } from "../../movies-api";
 import { useParams } from "react-router-dom";
 
+import css from "./MovieReviews.module.css";
+
 export default function MovieReviews() {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
@@ -17,22 +19,21 @@ export default function MovieReviews() {
   }, [movieId]);
 
   return (
-    <div>
-
+    <section className={css.reviewsSection}>
       {reviews.length > 0 ? (
-        <ul>
+        <ul className={css.reviewsList}>
           {reviews.map((review) => {
             return (
-              <li key={review.id}>
-                <h3>{review.author}</h3>
-                <p>{review.content}</p>
+              <li className={css.reviewItem} key={review.id}>
+                <h3 className={css.reviewAutor}>{review.author}</h3>
+                <p className={css.reviewText}>{review.content}</p>
               </li>
             );
           })}
         </ul>
       ) : (
-        <p>We don`t have any reviews about this film.</p>
+        <h2>We don`t have any reviews about this film.</h2>
       )}
-    </div>
+    </section>
   );
 }

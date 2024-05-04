@@ -40,12 +40,12 @@ export async function getMovieCast(id) {
   return response.data;
 }
 
-export async function getMovieTrailer(id) {
-  const response = await axios.get(`movie/${id}/videos`, options);
-  return response.data.results;
-}
-
 export async function getMovieReviews(id) {
   const response = await axios.get(`movie/${id}/reviews`, options);
   return response.data;
+}
+
+export async function getMovieTrailer(id) {
+  const response = await axios.get(`movie/${id}/videos`, options);
+  return response.data.results;
 }
