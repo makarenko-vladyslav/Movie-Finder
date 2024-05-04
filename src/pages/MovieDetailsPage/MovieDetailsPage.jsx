@@ -11,6 +11,22 @@ import { getMoviesById } from "../../movies-api";
 import bannerImg from "../../assets/banner-min.jpg";
 import noPosterImg from "../../assets/no-poster.jpg";
 
+import css from "./MovieDetailsPage.module.css";
+import { AiFillLike } from "react-icons/ai";
+import { BiTime } from "react-icons/bi";
+import clsx from "clsx";
+
+function ratingColor(rating) {
+  return clsx(
+    css.rating,
+    rating >= 7 && css.ratingGreen,
+    rating > 5 && rating < 7 && css.ratingYellow,
+    rating >= 3 && rating <= 5 && css.ratingOrange,
+    rating < 3 && css.ratingRed,
+    !rating && css.ratingNull
+  );
+}
+
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState("");
@@ -44,18 +60,19 @@ export default function MovieDetailsPage() {
 
       {error && <p>There was an error loading the movie details.</p>}
       {movie && (
-        // <section className={css.section}
+        <section className={css.filmDetailWrapper}>
+          <div
+            className={css.background}
+            style={{
+              backgroundImage: movie.backdrop_path
+                ? `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), 
+              url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`
+                : `url(${bannerImg})`,
+            }}
+          ></div>
 
-        <section
-          style={{
-            background: movie.backdrop_path
-              ? `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})`
-              : `url(${bannerImg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
           <img
+            className={css.poster}
             src={
               movie.poster_path
                 ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -65,12 +82,50 @@ export default function MovieDetailsPage() {
             height="250px"
             width="175px"
           />
-          <div>
-            <h2>{movie.title}</h2>
-            <p>{movie.tagline}</p>
+          <div className={css.infoWrapper}>
+            <span className={css.release}>Release: {movie.release_date}</span>
 
-            <p>{movie.overview}</p>
-            <p>Release: {movie.release_date}</p>
+            <h1 className={css.title}>{movie.title}</h1>
+            <p className={css.losung}>{movie.tagline}</p>
+
+            <ul className={css.genreList}>
+              {movie.genres.map((genre) => (
+                <li className={css.genreItem} key={genre.id}>
+                  {genre.name}
+                </li>
+              ))}
+            </ul>
+
+            <ul className={css.listInfo}>
+              <li className={css.infoItem}>
+                Rating:{" "}
+                <span
+                  className={
+                    movie.vote_average && ratingColor(movie.vote_average)
+                  }
+                >
+                  {movie.vote_average != 0 && movie.vote_average.toFixed(1)}
+                </span>
+              </li>
+
+              <li className={css.infoItem}>
+                Grades:{" "}
+                <span className={css.accent}>
+                  <AiFillLike className={css.icon} />
+                  {movie.vote_count}
+                </span>
+              </li>
+
+              <li className={css.infoItem}>
+                Duration:{" "}
+                <span className={css.accent}>
+                  <BiTime className={css.icon} />
+                  {movie.runtime} m.
+                </span>
+              </li>
+            </ul>
+
+            <p className={css.overview}>{movie.overview}</p>
           </div>
         </section>
       )}
