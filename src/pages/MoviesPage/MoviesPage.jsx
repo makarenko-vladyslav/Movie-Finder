@@ -6,6 +6,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import MovieList from "../../components/MovieList/MovieList";
 import LoadMore from "../../components/LoadMore/LoadMore";
 import Spinner from "../../components/Spinner/Spinner";
+import Error from "../../components/Error/Error";
 
 import css from "./MoviesPage.module.css";
 
@@ -49,6 +50,7 @@ export default function MoviesPage() {
       setMovies([]);
       setLoading(true);
       setloadMore(false);
+      setError(false);
 
       const data = await getPopularMovies();
 
@@ -66,13 +68,13 @@ export default function MoviesPage() {
       setMovies([]);
       setLoading(true);
       setloadMore(false);
+      setError(false);
       const data = await searchMovies(title, page);
       setMovies((prevMovies) => [...prevMovies, ...data.results]);
-      if (!data.total_pages) {
-        return setError(true);
+      if (data.total_pages === 0) {
+        return;
       }
       page >= data.total_pages ? setloadMore(false) : setloadMore(true);
-      console.log(data.total_pages);
     } catch (error) {
       setError(true);
     } finally {
@@ -85,14 +87,29 @@ export default function MoviesPage() {
     <section className={css.body}>
       <SearchBar onSubmit={handleSearch}></SearchBar>
 
-      {!loading &&
+      {!error ? (
+        !loading &&
+        movies.length != 0 &&
         (searchValue ? (
           <h2 className={css.title}>Films by request: {searchValue}</h2>
         ) : (
           <h2 className={css.title}>Most popular</h2>
-        ))}
+        ))
+      ) : (
+        <Error />
+      )}
 
-      <MovieList movies={movies && movies}></MovieList>
+      {movies.length !== 0 ? (
+        <MovieList movies={movies}></MovieList>
+      ) : (
+        !loading &&
+        searchValue && (
+          <h2>
+            Sorry! We don{"'"}t have any films with this title, please try
+            another one.
+          </h2>
+        )
+      )}
 
       {loading && <Spinner></Spinner>}
 

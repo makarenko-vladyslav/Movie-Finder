@@ -8,10 +8,10 @@ export default function SearchBar({ onSubmit }) {
     evt.preventDefault();
 
     const form = evt.target;
-    const topic = form.elements.topic.value;
+    const topic = form.elements.topic.value.trim();
 
     !topic.trim()
-      ? toast.error("Your should to enter film title for search!")
+      ? toast.error("Enter film title for search")
       : onSubmit(topic);
 
     form.reset();
@@ -34,20 +34,28 @@ export default function SearchBar({ onSubmit }) {
             name="topic"
           />
         </div>
-      </form>
 
-      <Toaster
-        position="top-right"
-        reverseOrder={false}
-        toastOptions={{
-          duration: "400",
-          style: {
-            border: "1px solid #ff4800",
-            padding: "16px",
-            color: "#ff4800",
-          },
-        }}
-      />
+        <Toaster
+          reverseOrder={false}
+          toastOptions={{
+            duration: "400",
+            icon: null,
+            style: {
+              borderRadius: "10px",
+              background: "#333",
+              color: "#d9212f",
+              textWrap: "nowrap",
+              display: "block",
+              minWidth: "220px"
+            },
+          }}
+          containerStyle={{
+            position: "absolute",
+            top: 60,
+            right: 200,
+          }}
+        />
+      </form>
     </>
   );
 }

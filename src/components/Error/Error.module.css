@@ -1,0 +1,16 @@
+.error {
+  position: fixed;
+  font-size: 26px;
+  text-shadow:3px 4px 6px #00000069;
+  border-radius: 10px;
+  background: #333;
+  color: #f01b2d;
+  text-wrap: nowrap;
+  display: inline;
+  min-width: 220px;
+  top: 10px;
+  right: 10px;
+  padding: 10px 16px;
+  box-shadow: 3px 6px 12px #00000054;
+  opacity: 1;
+}
