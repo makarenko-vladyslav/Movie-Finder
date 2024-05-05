@@ -24,8 +24,8 @@ export default function ModalTrailer({ isOpen, onClose, trailerUrl }) {
     >
       <ReactPlayer
         url={trailerUrl && `https://www.youtube.com/watch?v=${trailerUrl}`}
-        height={"700px"}
-        width={"1200px"}
+        width="100%"
+        height="100%"
         controls={true}
         playing={isOpen}
         className={css.player}

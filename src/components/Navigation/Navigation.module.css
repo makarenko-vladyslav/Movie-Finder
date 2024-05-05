@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -8,7 +9,7 @@
 }
 
 .nav {
-  max-width: 1440px;
+  max-width: 1430px;
   width: 100%;
   margin: 0 auto;
   height: 100%;
@@ -28,7 +29,6 @@
 .logoMovie {
   font-size: 46px;
   color: #fff;
-  /* color: transparent; */
   margin-left: 16px;
 }
 

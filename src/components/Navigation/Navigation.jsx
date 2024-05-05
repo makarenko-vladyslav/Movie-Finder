@@ -1,5 +1,4 @@
 import { Link, NavLink } from "react-router-dom";
-// import { RiMovie2Line } from "react-icons/ri";
 import { PiSpinnerBallBold } from "react-icons/pi";
 import { BiCameraMovie } from "react-icons/bi";
 

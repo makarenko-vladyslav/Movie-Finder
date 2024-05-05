@@ -1,14 +1,14 @@
 .form {
   position: absolute;
-  top: -65px;
-  right: 10%;
-  /* transform: translateX(50%); */
+  top: 90px;
+  right: 50%;
   display: flex;
+  transform: translateX(50%);
   justify-content: center;
   align-items: center;
   min-width: 150px;
   width: 100%;
-  max-width: 50%;
+  max-width: 250px;
 }
 
 .inputWrapper {
@@ -19,7 +19,7 @@
 .input {
   position: relative;
   padding: 8px 8px;
-  padding-left: 13%;
+  padding-left: 48px;
   width: 100%;
   height: 50px;
   border: 1px solid;
@@ -41,9 +41,9 @@
 .btn {
   position: absolute;
   z-index: 1;
-  padding: 13px 5%;
+  padding: 13px 10px;
+  left: 5px;
   font-size: 24px;
-  left: 0;
   border-radius: 4px;
   border: transparent;
   outline: transparent;

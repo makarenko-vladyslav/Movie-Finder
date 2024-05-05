@@ -52,7 +52,7 @@ export default function SearchBar({ onSubmit }) {
           containerStyle={{
             position: "absolute",
             top: 60,
-            right: 200,
+            right: 0,
           }}
         />
       </form>

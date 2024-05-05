@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import {
   Link,
   NavLink,
@@ -17,6 +17,7 @@ import css from "./MovieDetailsPage.module.css";
 import { AiFillLike } from "react-icons/ai";
 import { BiTime } from "react-icons/bi";
 import { FaImdb } from "react-icons/fa";
+import Spinner from "../../components/Spinner/Spinner";
 
 function ratingColor(rating) {
   return clsx(
@@ -69,6 +70,10 @@ export default function MovieDetailsPage() {
   const closeModal = () => {
     setModalIsOpen(false);
     document.body.style.overflow = "auto";
+  };
+
+  const getNavLinkClass = ({ isActive }) => {
+    return clsx(css.navItem, isActive && css.active);
   };
 
   return (
@@ -165,22 +170,24 @@ export default function MovieDetailsPage() {
         </section>
       )}
 
-      <div className={css.navWrapper}>
+      <section className={css.navWrapper}>
         <ul className={css.navList}>
           <li>
-            <NavLink className={css.navItem} to="cast">
+            <NavLink className={getNavLinkClass} to="cast">
               Actors
             </NavLink>
           </li>
           <li>
-            <NavLink className={css.navItem} to="reviews">
+            <NavLink className={getNavLinkClass} to="reviews">
               Reviews
             </NavLink>
           </li>
         </ul>
 
-        <Outlet />
-      </div>
+        <Suspense fallback={<Spinner />}>
+          <Outlet />
+        </Suspense>
+      </section>
     </div>
   );
 }
