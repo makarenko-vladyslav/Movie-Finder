@@ -85,6 +85,7 @@ export default function MovieDetailsPage() {
 
   return (
     <>
+
       <Link className={css.goBack} to={backLinkRefURL.current}>
         Go back
       </Link>

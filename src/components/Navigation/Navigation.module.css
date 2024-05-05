@@ -1,6 +1,6 @@
 .header {
-  position: fixed;
-  z-index: 999;
+  /* position: fixed; */
+  /* z-index: 999; */
   display: flex;
   justify-content: start;
   align-items: center;
