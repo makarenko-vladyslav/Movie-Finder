@@ -85,9 +85,9 @@ export default function MovieDetailsPage() {
 
   return (
     <>
-      <div>
-        <Link className={css.goBack} to={backLinkRefURL.current}>Go back</Link>
-      </div>
+      <Link className={css.goBack} to={backLinkRefURL.current}>
+        Go back
+      </Link>
 
       {error && <p>There was an error loading the movie details.</p>}
 

@@ -11,25 +11,24 @@ const getItemClass = ({ isActive }) => {
 };
 
 export default function Navigation() {
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
-      setVisible(
-        (prevScrollPos) =>
-          prevScrollPos > currentScrollPos || currentScrollPos < 10
-      );
-      setScrollPosition(currentScrollPos);
+      const visible = prevScrollPos > currentScrollPos;
+
+      setPrevScrollPos(currentScrollPos);
+      setVisible(visible);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [prevScrollPos]);
 
   return (
-    <header className={clsx(css.header, !visible && css.hidden)}>
+    <header className={clsx(css.header, visible ? css.visible : css.hidden)}>
       <nav className={css.nav}>
         <Link to="/" className={css.logo}>
           <BiCameraMovie className={css.logoMovie} />

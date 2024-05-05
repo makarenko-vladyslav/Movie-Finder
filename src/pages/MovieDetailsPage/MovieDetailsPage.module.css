@@ -1,5 +1,6 @@
 .section {
   padding: 20px;
+  padding-top: 150px;
   display: flex;
   justify-content: center;
 }
@@ -155,7 +156,7 @@
   text-shadow: 1px 2px 6px black;
 
   @media screen and (min-width: 320px) {
-    top: -43px;
+    top: -57px;
     right: 14px;
   }
 
@@ -165,6 +166,7 @@
 
   @media screen and (min-width: 768px) {
     right: 30px;
+    top: 30px;
   }
 
   @media screen and (min-width: 960px) {
@@ -305,6 +307,9 @@
 }
 
 .goBack {
+  position: absolute;
+  top: 100px;
+  /* left: 20px; */
   color: #000000;
   background-color: #f6c701;
   font-weight: 700;
