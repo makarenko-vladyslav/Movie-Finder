@@ -23,7 +23,7 @@ export default function MovieCast() {
     getActors();
   }, [movieId]);
 
-  return (
+  return actors.length > 0 ? (
     <section className={css.actorsSection}>
       <ul className={css.actorsList}>
         {actors.map((actor) => {
@@ -41,16 +41,18 @@ export default function MovieCast() {
                 width="175px"
               />
 
-              <h4 className={css.actorName}>{actor.name}</h4>
-              <p className={css.actorCharacter}>{actor.character}</p>
+              <h3 className={css.actorName}>{actor.name}</h3>
+              <h4 className={css.actorCharacter}>{actor.character}</h4>
 
               <p className={css.actorPopularity}>
-                Popularity: <span>{actor.popularity}</span>
+                Popularity: <span>{actor.popularity.toFixed(1)}</span>
               </p>
             </li>
           );
         })}
       </ul>
     </section>
+  ) : (
+    <h2>We don`t know actors from this film.</h2>
   );
 }

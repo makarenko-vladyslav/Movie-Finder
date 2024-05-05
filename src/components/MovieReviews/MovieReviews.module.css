@@ -1,0 +1,40 @@
+.reviewsSection {
+  border-radius: 16px;
+  padding: 10px;
+  background-color: rgba(27, 25, 25, 0.598);
+  backdrop-filter: blur(6px);
+
+  cursor:default;
+}
+
+.reviewItem:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.reviewItem {
+  border: 1px solid #f4c500;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.reviewAutor {
+  position: relative;
+  display: inline;
+  color: #f4c500;
+  padding: 10px;
+}
+
+.reviewAutor::after {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  left: 10px;
+
+  width: 85%;
+  height: 1px;
+  background-color: #f4c500;
+}
+
+.reviewText {
+  padding: 10px;
+}
