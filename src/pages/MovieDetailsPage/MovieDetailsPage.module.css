@@ -48,7 +48,6 @@
     flex-direction: row;
     min-width: 768px;
     padding: 20px;
-    min-height: 700px;
   }
 
   @media screen and (min-width: 947px) {
@@ -64,15 +63,11 @@
   @media screen and (min-width: 1309px) {
     width: 1260px;
     min-width: 1309px;
-    min-height: 780px;
-  }
-
-  @media screen and (min-width: 1309px) {
-    min-height: 720px;
   }
 }
 
 .leftWrapper {
+  position: relative;
   min-width: 300px;
 }
 
@@ -108,26 +103,12 @@
   text-wrap: balance;
   position: relative;
   margin-top: 36px;
+  padding-top: 50px;
   height: 100%;
 
-  @media screen and (min-width: 320px) {
-    padding-top: 40px;
-    padding-bottom: 90px;
-  }
-
   @media screen and (min-width: 480px) {
-    padding-top: 0px;
-    padding-bottom: 70px;
+    padding-top: 0;
   }
-
-  @media screen and (min-width: 768px) {
-    padding: 90px 0px;
-  }
-
-  @media screen and (min-width: 1309px) {
-    min-height: 710px;
-  }
-
 }
 
 .title {
@@ -211,6 +192,9 @@
   gap: 30px;
   padding: 10px;
   width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 .infoItem {
@@ -221,14 +205,13 @@
 }
 
 .trailerBtn {
-  position: absolute;
-  left: 0;
   bottom: 25px;
   cursor: pointer;
   z-index: 2;
 
   cursor: pointer;
 
+  width: 100%;
   border-radius: 14px;
   padding: 16px 46px;
   text-transform: uppercase;
@@ -241,39 +224,6 @@
 
   &:hover {
     background-color: greenyellow;
-  }
-
-  @media screen and (min-width: 320px) {
-    bottom: 16px;
-    transform: translateX(33.3%);
-  }
-
-  @media screen and (min-width: 375px) {
-    transform: translateX(50%);
-  }
-
-  @media screen and (min-width: 480px) {
-    transform: translateX(-50%);
-    left: 50%;
-  }
-
-  @media screen and (min-width: 768px) {
-    bottom: 12px;
-    transform: translateX(5%);
-    left: 0;
-    width: 300px;
-  }
-
-  @media screen and (min-width: 947px) {
-    transform: translateX(7%);
-  }
-
-  @media screen and (min-width: 1128px) {
-  }
-
-  @media screen and (min-width: 1309px) {
-    transform: translateX(6%);
-    width: 355px;
   }
 }
 

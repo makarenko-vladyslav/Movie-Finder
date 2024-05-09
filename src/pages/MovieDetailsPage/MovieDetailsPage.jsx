@@ -124,6 +124,33 @@ export default function MovieDetailsPage() {
                   width="175px"
                 />
 
+                {trailer != null && (
+                  <button className={css.trailerBtn} onClick={playTrailer}>
+                    Trailer
+                  </button>
+                )}
+              </div>
+
+              <div className={css.rightWrapper}>
+                <span className={css.release}>
+                  Release: {movie.release_date}
+                </span>
+
+                
+
+                <h1 className={css.title}>{movie.title}</h1>
+                <p className={css.losung}>
+                  {movie.tagline && `"${movie.tagline}"`}
+                </p>
+
+                <ul className={css.genreList}>
+                  {movie.genres.map((genre) => (
+                    <li className={css.genreItem} key={genre.id}>
+                      {genre.name}
+                    </li>
+                  ))}
+                </ul>
+
                 <ul className={css.listInfo}>
                   <li className={css.infoItem}>
                     Rating:
@@ -152,32 +179,8 @@ export default function MovieDetailsPage() {
                   </li>
                 </ul>
 
-                {trailer != null && (
-                  <button className={css.trailerBtn} onClick={playTrailer}>
-                    Trailer
-                  </button>
-                )}
-              </div>
-
-              <div className={css.rightWrapper}>
-                <span className={css.release}>
-                  Release: {movie.release_date}
-                </span>
-
-                <h1 className={css.title}>{movie.title}</h1>
-                <p className={css.losung}>
-                  {movie.tagline && `"${movie.tagline}"`}
-                </p>
-
-                <ul className={css.genreList}>
-                  {movie.genres.map((genre) => (
-                    <li className={css.genreItem} key={genre.id}>
-                      {genre.name}
-                    </li>
-                  ))}
-                </ul>
-
                 <p className={css.overview}>{movie.overview}</p>
+                
               </div>
             </div>
 
