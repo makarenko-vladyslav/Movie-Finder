@@ -41,12 +41,14 @@ export default function MovieCast() {
                 width="175px"
               />
 
-              <h3 className={css.actorName}>{actor.name}</h3>
-              <h4 className={css.actorCharacter}>{actor.character}</h4>
+              <div className={css.actorInfoWrapper}>
+                <h3 className={css.actorName}>{actor.name}</h3>
+                <h4 className={css.actorCharacter}>{actor.character}</h4>
 
-              <p className={css.actorPopularity}>
-                Popularity: <span>{actor.popularity.toFixed(1)}</span>
-              </p>
+                <p className={css.actorPopularity}>
+                  Popularity: <span>{actor.popularity.toFixed(1)}</span>
+                </p>
+              </div>
             </li>
           );
         })}
