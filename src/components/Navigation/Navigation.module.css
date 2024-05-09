@@ -7,9 +7,11 @@
   justify-content: start;
   align-items: center;
   flex-direction: row;
-  background-color: #252627;
+  background-color: #2526278b;
   height: 80px;
   width: 100%;
+
+  backdrop-filter: blur(3px);
 
   transition: transform 0.3s ease-in-out;
 }

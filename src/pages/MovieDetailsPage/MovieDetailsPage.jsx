@@ -9,7 +9,7 @@ import {
 import clsx from "clsx";
 
 import { getMoviesById, getMovieTrailer } from "../../movies-api";
-import Modal from "../../components/ModalTrailer/ModalTrailer";
+import ModalTrailer from "../../components/ModalTrailer/ModalTrailer";
 import bannerImg from "../../assets/banner-min.jpg";
 import noPosterImg from "../../assets/no-poster.jpg";
 
@@ -75,8 +75,13 @@ export default function MovieDetailsPage() {
   }
 
   const closeModal = () => {
-    setModalIsOpen(false);
-    document.body.style.overflow = "auto";
+    try {
+      setModalIsOpen(false);
+      document.body.style.overflow = "auto";
+    } catch (error) {
+      setModalIsOpen(false);
+      document.body.style.overflow = "auto";
+    }
   };
 
   const getNavLinkClass = ({ isActive }) => {
@@ -85,7 +90,6 @@ export default function MovieDetailsPage() {
 
   return (
     <>
-
       <Link className={css.goBack} to={backLinkRefURL.current}>
         Go back
       </Link>
@@ -177,13 +181,11 @@ export default function MovieDetailsPage() {
               </div>
             </div>
 
-            {modalIsOpen && (
-              <Modal
-                isOpen={modalIsOpen}
-                onClose={closeModal}
-                trailerUrl={trailer}
-              />
-            )}
+            <ModalTrailer
+              isOpen={modalIsOpen}
+              onClose={closeModal}
+              trailerUrl={trailer}
+            />
           </section>
 
           <section className={css.navWrapper}>
